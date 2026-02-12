@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nila ❤️ Deepak</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background:black;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Content container */
+.container{
+    position:relative;
+    z-index:10;
+    padding:100px 20px;
+    max-width:800px;
+    margin:auto;
+}
+
+/* Buttons */
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    z-index:20;
+}
+
+.love-btn{
+    padding:12px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+/* Heart style */
+.heart{
+    position:fixed;
+    top:-50px;
+    font-size:30px;
+    animation: fall linear forwards;
+    z-index:1;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+
+/* Proposal paragraph style */
+#hiddenMsg{
+    display:none;
+    margin-top:30px;
+    color:#ff69b4;
+    font-size:24px;
+    line-height:1.6;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic">
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
+
+<div class="container">
+<h1>Happy Valentine's Day Deepak ❤️</h1>
+
+<p>
+From one random Free Fire match to 5 beautiful years...  
+Even after so many fights, we never left each other.  
+That’s our love story 💙🖤
+</p>
+
+<button class="love-btn" onclick="showMessage()">Click Here Deepak 💌</button>
+
+<div id="hiddenMsg">
+<p>
+	Deepak🎀, from the moment we met, you have filled my life with joy and laughter✨. 
+Every moment with you is precious🤌🏻💗, and I cannot imagine my life without you by my side🥹. 
+	Through all our ups and downs, our love has only grown stronger🫶🏻. Today, on Valentine’s Day💞, I want to tell you that I love you 🩵🖤with all my heart, I cherish every memory we have made💝, and I want to create countless more together.
+
+			 Will you be mine forever?🥹 
+I promise to stand by you, support you, and love you endlessly. Forever Yours, Nila ❤️
+</p>
+</div>
+</div>
+
+<script>
+function playMusic(){
+    document.getElementById("bgMusic").play();
+}
+
+/* Falling Hearts */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = Math.random() > 0.5 ? "💙" : "🖤";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (Math.random()*3+4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 200);
+
+/* Show paragraph on button click */
+function showMessage(){
+    document.getElementById("hiddenMsg").style.display="block";
+    document.getElementById("bgMusic").play();
+}
+</script>
+
+</body>
+</html>
